@@ -22,21 +22,21 @@
 
 <script>
 export default {
-  name: 'Login',
-  data () {
-    return {
-      user: {
-        login: '',
-        password: ''
-      },
-      loading: false,
-      error: null,
-      valid: false,
-      validation: [
-        v => !!v || 'обязательное поле'
-      ]
+    name: 'Login',
+    data () {
+        return {
+            user: {
+                login: '',
+                password: ''
+            },
+            loading: false,
+            error: null,
+            valid: false,
+            validation: [
+                v => !!v || 'обязательное поле'
+            ]
+        }
     }
-  }
 }
 </script>
 
