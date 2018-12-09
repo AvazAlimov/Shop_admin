@@ -6,10 +6,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel index.pug --no-cache",
-    "lint": "eslint --ext .js,.vue src --fix"
+    "lint": "eslint --ext .js,.vue src --fix",
+    "build": "NODE_ENV=production parcel build -d ./static --public-url './' index.pug"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.3.0",
+    "cssnano": "^4.1.7",
     "pug": "^2.0.3",
     "vue-template-compiler": "^2.5.17"
   },
