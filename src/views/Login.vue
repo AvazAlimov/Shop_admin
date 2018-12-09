@@ -8,7 +8,7 @@
               v-card-text
                 .title Авторизация
                 v-form(ref="form" v-model="valid")
-                  v-text-field.mt-3(v-model="user.email"
+                  v-text-field.mt-3(v-model="user.username"
                       label="логин"
                       :rules="validation"
                       @keyup="")
@@ -17,24 +17,53 @@
                       type="password"
                       :rules="validation"
                       @keyup="")
-                  v-btn.mt-3(depressed color="primary" :loading="loading" block @click="") войти в систему
+                  v-btn.mt-3(depressed color="primary" :loading="loading" block @click="login") войти в систему
+    v-snackbar(:value="error" bottom)
+        span(v-for="key in Object.keys(error)" v-if="error") {{ error[key] }}
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
     name: 'Login',
     data () {
         return {
             user: {
-                login: '',
+                username: '',
                 password: ''
             },
             loading: false,
-            error: null,
+            error: false,
             valid: false,
             validation: [
                 v => !!v || 'обязательное поле'
             ]
+        }
+    },
+    computed: {
+        ...mapGetters({
+            token: 'auth/getToken'
+        })
+    },
+    methods: {
+        ...mapActions({
+            _login: 'auth/login'
+        }),
+        login () {
+            this.loading = true
+            this._login(this.user).then(() => {
+                this.$router.push('/')
+            }).catch(error => {
+                this.error = error
+            }).finally(() => {
+                this.loading = false
+            })
+        }
+    },
+    created () {
+        if (this.token) {
+            this.$router.push('/')
         }
     }
 }
