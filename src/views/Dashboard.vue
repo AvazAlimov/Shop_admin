@@ -72,7 +72,7 @@ export default {
         } else {
             AXIOS.defaults.headers.common['Authorization'] = 'Bearer ' + this.token
             AXIOS.interceptors.response.use(undefined, error => {
-                if (error.response.status) {
+                if (error.response && error.response.status === 401) {
                     this.logout()
                 }
             })
