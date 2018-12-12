@@ -28,5 +28,22 @@ export default {
                     }
                 })
         })
+    },
+
+    remove (id) {
+        return new Promise((resolve, reject) => {
+            Api()
+                .delete('/seasons/' + id)
+                .then(() => resolve())
+                .catch(error => {
+                    if (error.response) {
+                        reject(error.response.data)
+                    } else if (error.request) {
+                        reject(new Error('No response was received'))
+                    } else {
+                        reject(new Error('Error in request'))
+                    }
+                })
+        })
     }
 }

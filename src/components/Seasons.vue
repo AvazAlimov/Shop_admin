@@ -20,7 +20,7 @@
                             v-icon(color="green") edit
                         v-spacer
                         v-btn(icon)
-                            v-icon(color="red") close
+                            v-icon(color="red" @click="remove(season.id)") close
 </template>
 
 <script>
@@ -36,6 +36,9 @@ export default {
     methods: {
         load () {
             Season.getAll().then(seasons => (this.seasons = seasons))
+        },
+        remove (id) {
+            Season.remove(id).then(() => this.load())
         }
     },
     created () {
