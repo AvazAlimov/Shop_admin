@@ -32,6 +32,7 @@
 
 <script>
 import Language from '../services/Language'
+import Constants from '../assets/languages.json'
 
 export default {
     name: 'Language',
@@ -39,28 +40,7 @@ export default {
         return {
             dialog: false,
             languages: [],
-            constants: [
-                {
-                    code: 'uz',
-                    name: 'O\'zbekcha'
-                },
-                {
-                    code: 'ru',
-                    name: 'Русский'
-                },
-                {
-                    code: 'en',
-                    name: 'English'
-                },
-                {
-                    code: 'it',
-                    name: 'Italiano'
-                },
-                {
-                    code: 'tr',
-                    name: 'Türk'
-                }
-            ]
+            constants: Constants
         }
     },
     methods: {

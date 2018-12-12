@@ -1,0 +1,22 @@
+[
+    {
+        "code": "uz",
+        "name": "O'zbekcha"
+    },
+    {
+        "code": "ru",
+        "name": "Русский"
+    },
+    {
+        "code": "en",
+        "name": "English"
+    },
+    {
+        "code": "it",
+        "name": "Italiano"
+    },
+    {
+        "code": "tr",
+        "name": "Türk"
+    }
+]
