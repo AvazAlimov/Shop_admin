@@ -3,6 +3,7 @@ import App from './src/App'
 import router from './src/router'
 import store from './src/store'
 import Vuetify from 'vuetify'
+import './src/components'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 

@@ -1,21 +1,16 @@
 <template lang="pug">
     v-layout(row wrap)
         v-flex(xs12)
-            languages
+            Categories
         v-flex(xs12)
-            seasons
+            Seasons
+        v-flex(xs12)
+            Languages
 </template>
 
 <script>
-import Languages from '../components/Languages'
-import Seasons from '../components/Seasons'
-
 export default {
-    name: 'Settings',
-    components: {
-        languages: Languages,
-        seasons: Seasons
-    }
+    name: 'Settings'
 }
 </script>
 

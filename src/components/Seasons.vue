@@ -16,11 +16,11 @@
                         span.mr-3(v-for="key in Object.keys(season.name)") {{ season.name[key] }}
                 v-list-tile-action
                     v-layout(row)
-                        v-btn(icon)
+                        v-btn(icon :to="'/season/' + season.id")
                             v-icon(color="green") edit
                         v-spacer
-                        v-btn(icon)
-                            v-icon(color="red" @click="remove(season.id)") close
+                        v-btn(icon @click="remove(season.id)")
+                            v-icon(color="red") close
 </template>
 
 <script>

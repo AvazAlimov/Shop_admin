@@ -4,7 +4,7 @@ export default {
     getAll () {
         return new Promise(resolve => {
             Api()
-                .get('/seasons')
+                .get('/categories')
                 .then(response => resolve(response.data))
         })
     },
@@ -12,15 +12,36 @@ export default {
     get (id) {
         return new Promise(resolve => {
             Api()
-                .get('/seasons/' + id)
+                .get('/categories/' + id)
                 .then(response => resolve(response.data))
         })
     },
 
-    create (season) {
+    create (category) {
         return new Promise((resolve, reject) => {
             Api()
-                .post('/seasons', season, {
+                .post('/categories', category, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(response => resolve(response.data))
+                .catch(error => {
+                    if (error.response) {
+                        reject(error.response.data)
+                    } else if (error.request) {
+                        reject(new Error('No response was received'))
+                    } else {
+                        reject(new Error('Error in request'))
+                    }
+                })
+        })
+    },
+
+    update (id, category) {
+        return new Promise((resolve, reject) => {
+            Api()
+                .post('/categories/' + id, category, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -41,29 +62,8 @@ export default {
     remove (id) {
         return new Promise((resolve, reject) => {
             Api()
-                .delete('/seasons/' + id)
+                .delete('/categories/' + id)
                 .then(() => resolve())
-                .catch(error => {
-                    if (error.response) {
-                        reject(error.response.data)
-                    } else if (error.request) {
-                        reject(new Error('No response was received'))
-                    } else {
-                        reject(new Error('Error in request'))
-                    }
-                })
-        })
-    },
-
-    update (id, season) {
-        return new Promise((resolve, reject) => {
-            Api()
-                .post('/seasons/' + id, season, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                })
-                .then(response => resolve(response.data))
                 .catch(error => {
                     if (error.response) {
                         reject(error.response.data)
