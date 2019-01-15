@@ -6,6 +6,8 @@ import Home from '../views/Home'
 import Settings from '../views/Settings'
 import Season from '../views/Season'
 import Category from '../views/Category'
+import Brand from '../views/Brand'
+import Brands from '../views/Brands'
 
 Vue.use(VueRouter)
 
@@ -47,6 +49,22 @@ export default new VueRouter({
                     path: '/category/:id',
                     name: 'category_update',
                     component: Category
+                },
+                /* Brands */
+                {
+                    path: '/brands',
+                    name: 'brands',
+                    component: Brands
+                },
+                {
+                    path: '/brand',
+                    name: 'brand_create',
+                    component: Brand
+                },
+                {
+                    path: '/brand/:id',
+                    name: 'brand_update',
+                    component: Brand
                 }
             ]
         },
