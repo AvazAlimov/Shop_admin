@@ -15,12 +15,11 @@
                     v-list-tile-sub-title
                         span.mr-3(v-for="key in Object.keys(season.name)") {{ season.name[key] }}
                 v-list-tile-action
-                    v-layout(row)
-                        v-btn(icon :to="'/season/' + season.id")
-                            v-icon(color="green") edit
-                        v-spacer
-                        v-btn(icon @click="remove(season.id)")
-                            v-icon(color="red") close
+                    v-layout(row wrap justify-end)
+                        v-btn.mr-2(icon :to="'/season/' + season.id" small)
+                            v-icon(color="green" small) edit
+                        v-btn(icon @click="remove(season.id)" small)
+                            v-icon(color="red" small) close
 </template>
 
 <script>

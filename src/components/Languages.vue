@@ -12,8 +12,8 @@
                 v-list-tile-content
                     v-list-tile-title {{ constants.find(function(item) { return item.code == code }).name }}
                 v-list-tile-action
-                    v-btn(icon @click="remove(code)")
-                        v-icon(color="red") close
+                    v-btn(icon @click="remove(code)" small)
+                        v-icon(color="red" small) close
         v-dialog(v-model="dialog" fixed width="500")
             v-card.pa-2
                 v-card-title

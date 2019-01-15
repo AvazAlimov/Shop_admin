@@ -9,10 +9,9 @@
             v-treeview(
                 :items="items"
                 transition
-                item-text="default"
-                selected-color="primary"
-                on-icon="bookmark"
-                off-icon="bookmark_border")
+                open-on-click
+                activatable
+                item-text="default")
                 template(slot="append" slot-scope="{ item, open, leaf }" v-if="leaf")
                     v-btn.mr-0(flat icon color="green" small :to="'/category/' + item.id")
                         v-icon(small) edit
