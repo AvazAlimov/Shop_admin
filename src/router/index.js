@@ -8,6 +8,8 @@ import Season from '../views/Season'
 import Category from '../views/Category'
 import Brand from '../views/Brand'
 import Brands from '../views/Brands'
+import Collection from '../views/Collection'
+import Collections from '../views/Collections'
 
 Vue.use(VueRouter)
 
@@ -65,6 +67,22 @@ export default new VueRouter({
                     path: '/brand/:id',
                     name: 'brand_update',
                     component: Brand
+                },
+                /* Brands */
+                {
+                    path: '/collections',
+                    name: 'collections',
+                    component: Collections
+                },
+                {
+                    path: '/collection',
+                    name: 'collection_create',
+                    component: Collection
+                },
+                {
+                    path: '/collection/:id',
+                    name: 'collection_update',
+                    component: Collection
                 }
             ]
         },
