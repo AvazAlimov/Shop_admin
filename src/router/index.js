@@ -10,6 +10,8 @@ import Brand from '../views/Brand'
 import Brands from '../views/Brands'
 import Collection from '../views/Collection'
 import Collections from '../views/Collections'
+import Product from '../views/Product'
+import Products from '../views/Products'
 
 Vue.use(VueRouter)
 
@@ -83,6 +85,22 @@ export default new VueRouter({
                     path: '/collection/:id',
                     name: 'collection_update',
                     component: Collection
+                },
+                /* Producs */
+                {
+                    path: '/products',
+                    name: 'products',
+                    component: Products
+                },
+                {
+                    path: '/product',
+                    name: 'product_create',
+                    component: Product
+                },
+                {
+                    path: '/product/:id',
+                    name: 'product_update',
+                    component: Product
                 }
             ]
         },
